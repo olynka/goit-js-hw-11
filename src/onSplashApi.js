@@ -7,7 +7,7 @@ axios.defaults.baseURL = 'https://pixabay.com/api/';
 
 export async function getImages(q, page, lodeMoreBtnRef, submit) {
     const searchParams = new URLSearchParams({
-        key: '29665517-503a19893477763dfc63054fb',
+        key: '29705426-bfa25e249bc10439228dcaa9b',
         image_type: 'photo',
         orientation: 'horizontal',
         safesearch: 'true',
@@ -22,7 +22,7 @@ export async function getImages(q, page, lodeMoreBtnRef, submit) {
 
     if (page > totalPages) {
         messages.onEnd();
-    } else if (response.data.hits.length == 0) {
+    } else if (response.data.hits.length === 0) {
         messages.onFail();
         console.log(totalPages)
     } else {
