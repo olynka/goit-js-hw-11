@@ -15,7 +15,7 @@ export async function getImages(q, page, lodeMoreBtnRef, submit) {
         page: `${page}`,
         q: `${q}`,
     });
-    lodeMoreBtnRef.classList.add('hide')
+    lodeMoreBtnRef.classList.add('is-hidden')
     const response = await axios.get(`?${searchParams}`);
     const messages = new Messages(response.data.totalHits);
     const totalPages = Math.ceil(response.data.totalHits / parseInt(searchParams.get('per_page')))
