@@ -21,7 +21,7 @@ export async function getImages(q, page, lodeMoreBtnRef, submit) {
     const totalPages = Math.ceil(response.data.totalHits / parseInt(searchParams.get('per_page')))
   
 
-    if (page > totalPages) {
+    if (totalPages <= page) {
         
         messages.onEnd();
          lodeMoreBtnRef.classList.add('is-hidden')
@@ -29,11 +29,8 @@ export async function getImages(q, page, lodeMoreBtnRef, submit) {
     } else if (response.data.hits.length === 0) {
         messages.onFail();
         console.log(totalPages)
-    } else if (totalPages <= page) {
-        
-     lodeMoreBtnRef.classList.add('is-hidden')
     }
-    
+
     else {
         lodeMoreBtnRef.classList.remove('is-hidden');
         if (submit) {
