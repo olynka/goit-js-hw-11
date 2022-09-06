@@ -2,7 +2,6 @@
 import { Messages } from "./messages"
 
 const axios = require('axios').default;
-
 axios.defaults.baseURL = 'https://pixabay.com/api/';
 
 export async function getImages(q, page, lodeMoreBtnRef, submit) {
@@ -15,17 +14,27 @@ export async function getImages(q, page, lodeMoreBtnRef, submit) {
         page: `${page}`,
         q: `${q}`,
     });
-    lodeMoreBtnRef.classList.add('is-hidden')
+ 
     const response = await axios.get(`?${searchParams}`);
     const messages = new Messages(response.data.totalHits);
+
     const totalPages = Math.ceil(response.data.totalHits / parseInt(searchParams.get('per_page')))
+  
 
     if (page > totalPages) {
+        
         messages.onEnd();
+         lodeMoreBtnRef.classList.add('is-hidden')
+       
     } else if (response.data.hits.length === 0) {
         messages.onFail();
         console.log(totalPages)
-    } else {
+    } else if (totalPages <= page) {
+        
+     lodeMoreBtnRef.classList.add('is-hidden')
+    }
+    
+    else {
         lodeMoreBtnRef.classList.remove('is-hidden');
         if (submit) {
             messages.onSuccess();

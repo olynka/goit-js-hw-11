@@ -3,6 +3,8 @@ import { renderCards } from './templatesCard';
 import { autoScroll } from './autoScroll';
 
 
+
+
 const formRef = document.querySelector('#search-form');
 const gallaryRef = document.querySelector('.gallery')
 const lodeMoreBtnRef = document.querySelector('.load-more');

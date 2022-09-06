@@ -15,5 +15,6 @@ export class Messages {
 
     onEnd() {
         Notiflix.Notify.info("We're sorry, but you've reached the end of search results.")
+        
     }
 }
