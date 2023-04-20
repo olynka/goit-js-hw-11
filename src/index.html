@@ -8,15 +8,33 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <form class="search-form" id="search-form">
-    <input  class="input-form" type="text" name="searchQuery"
-     autocomplete="off"
-      placeholder="Search images..." />
-    <button class="button-form" type="submit is-hidden">Пошук</button>
-    <div class="gallery">
+<section class="gallery-section">
+  <div class="container">
+    <form class="search-form js-search-form" id="search-form">
+    <input  class="search-input" type="text" name="searchQuery">
+  
+    <button class="search-btn" type="submit is-hiden">Пошук</button>
+      </form>
+    <ul class="gallery js-gallery list">
       <!-- Картки зображень -->
-    </div>
-    <button type="button" class="load-more is-hidden">Load more</button>
-    </form>
+    </ul>
+    <button type="button" class="load-more js-load-more is-hidden">Load more</button>
+<div id="pagination" class="tui-pagination"></div>
+</div>
+</section>
   </body>
 </html>
+
+
+
+<div class="backdrop is-hidden">
+  <div class="backdrop__container ">
+    <h2 class="backdrop__title">12friend</h2>
+    <ul class="backdrop__list ">
+
+    </ul>
+    <button class="backdrop__button" type="button">Close</button>
+
+  </div>
+
+</div>
